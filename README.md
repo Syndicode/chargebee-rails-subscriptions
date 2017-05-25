@@ -206,7 +206,7 @@ The plans can be synced to your application using the following command:
 ```
 
 
-Pass `force=true` to skip the checkup
+Pass `force=true` to skip the checkup. Use this in case when need to sync plans immediately. For example in deployment scripts.
 
 ```ruby
 
