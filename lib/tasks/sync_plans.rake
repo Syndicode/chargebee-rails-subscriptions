@@ -1,9 +1,9 @@
 namespace :chargebee_rails do
 
   desc "chargebee plans sync with application"
-  task :sync_plans => :environment do
+  task :sync_plans, [:option] => :environment do |task, args|
     # Prompt user input to get confirmation of the plan sync
-    if ENV['force'] == 'true'
+    if args[:option] == 'force'
       input = "y"
     else
       begin
