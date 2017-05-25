@@ -206,6 +206,15 @@ The plans can be synced to your application using the following command:
 ```
 
 
+Pass `force=true` to skip the checkup
+
+```ruby
+
+    rake chargebee_rails:sync_failed_events force=true
+
+```
+
+
 **Note**: The archived plans will also be synced in this method.
 
 
