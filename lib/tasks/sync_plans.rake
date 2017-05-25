@@ -3,23 +3,15 @@ namespace :chargebee_rails do
   desc "chargebee plans sync with application"
   task :sync_plans => :environment do
     # Prompt user input to get confirmation of the plan sync
-    begin
-      STDOUT.puts "\n This will sync plans in your application with chargebee, do you want to continue ? [y/n]"
-      input = STDIN.gets.strip.downcase
-    end until %w(y n).include?(input)
-    if input == "y"
-      # Keep collecting the plans from chargebee until an offset is not provided
-      loop do
-        plan_list = retrieve_plan_list
-        @offset = plan_list.next_offset
-        cb_plans << plan_list.flat_map(&:plan)
-        break unless @offset.present?
-      end
-      @cb_plans = cb_plans.flatten
-      sync_plans
-    else
-      STDOUT.puts "Plan sync aborted!"
+    # Keep collecting the plans from chargebee until an offset is not provided
+    loop do
+      plan_list = retrieve_plan_list
+      @offset = plan_list.next_offset
+      cb_plans << plan_list.flat_map(&:plan)
+      break unless @offset.present?
     end
+    @cb_plans = cb_plans.flatten
+    sync_plans
   end
 
   private
