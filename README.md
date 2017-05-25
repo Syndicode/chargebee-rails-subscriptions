@@ -67,7 +67,7 @@ If the rest-client version is less than 1.8.0, update the latest version by runn
 
 # Installation
 
-##Step 1: Install the “chargebee_rails” gem to your application
+## Step 1: Install the “chargebee_rails” gem to your application
 
 Add the below line to your Gemfile:
 
@@ -87,7 +87,7 @@ And, run
 ```
 
 
-##Step 2:  Add Subscription models to your app
+##  Step 2:  Add Subscription models to your app
 
 The entity that uniquely identifies a customer account within your application is referred to as a subscription owner module. For example, if you are building a CRM application, the entity that represents the customer’s account will be your subscription owner entity.
 
@@ -119,7 +119,7 @@ Now, you will have models and database tables set for subscriptions, plans, paym
 
 
 
-##Step 3: Set up Chargebee
+## Step 3: Set up Chargebee
 
 
 Configure your Chargebee site name and API key in the `config/initializers/chargebee_rails.rb` file. 
@@ -137,12 +137,12 @@ Configure your Chargebee site name and API key in the `config/initializers/charg
 ```
 
 
-##Gateway credentials
+## Gateway credentials
 
 Payment Gateway credentials have to be set up in Chargebee under *Settings> Site Settings> Gateway Settings*.
 
 
-##Webhook notifications
+## Webhook notifications
 
 You can set up basic authentication for your incoming webhook notifications in `config/initializers/chargebee_rails.rb` file. 
 
@@ -156,7 +156,7 @@ You can set up basic authentication for your incoming webhook notifications in `
 
 
 
-##Set the controller name used to handle webhooks
+## Set the controller name used to handle webhooks
 
 If you’d like to use a different controller to handle webhooks, you can extend the `ChargebeeRails::WebhookController` and add the controller name in config.webhook_handler.
 
@@ -178,7 +178,7 @@ For instance, if you have a controller *MyAppEventsController* in the `my_app_ev
 
 ```
 
-##Configure the webhook url in Chargebee
+## Configure the webhook url in Chargebee
 
 Configure the webhook url in Chargebee under *API & Webhooks> Webhook* Settings. The path can be specified as shown below:
 
@@ -193,7 +193,7 @@ Configure the webhook url in Chargebee under *API & Webhooks> Webhook* Settings.
 The webhook url for your site will be  _http(s)://&lt;your-domain&gt;.com/chargebee_rails_event_. 
 
 
-##Sync plans
+## Sync plans
 
 Currently Chargebee does not support webhook notifications for addition, update and removal of Plans. However, this gem comes with a rake task to sync plans between Chargebee and your application. Hence, each time a plan is created in Chargebee, it will automatically be synced with your application. In the future, we will have webhooks events in place to support plan related operations. Once that's done, the rake task’s code will be included as part of the event handler.
 
@@ -318,7 +318,7 @@ If you’d like to include delayed charges during [update_subscription_estimate]
 
  ```
 
-##Customer
+## Customer
 
 **Retrieve as Chargebee Customer**
 
@@ -355,7 +355,7 @@ If you’d like to include delayed charges during [update_subscription_estimate]
  ```
 
 
-##Subscription
+## Subscription
 
 **Create a Subscription**
 
