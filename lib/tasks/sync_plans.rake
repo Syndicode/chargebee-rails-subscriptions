@@ -3,10 +3,14 @@ namespace :chargebee_rails do
   desc "chargebee plans sync with application"
   task :sync_plans => :environment do
     # Prompt user input to get confirmation of the plan sync
-    begin
-      STDOUT.puts "\n This will sync plans in your application with chargebee, do you want to continue ? [y/n]"
-      input = STDIN.gets.strip.downcase
-    end until %w(y n).include?(input)
+    if ENV['force'] == 'true'
+      input = "y"
+    else
+      begin
+        STDOUT.puts "\n This will sync plans in your application with chargebee, do you want to continue ? [y/n]"
+        input = STDIN.gets.strip.downcase
+      end until %w(y n).include?(input)
+    end
     if input == "y"
       # Keep collecting the plans from chargebee until an offset is not provided
       loop do
