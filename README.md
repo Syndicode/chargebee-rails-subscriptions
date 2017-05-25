@@ -218,7 +218,7 @@ Pass `force=true` to skip the checkup. Use this in case when plan syncing is nee
 **Note**: The archived plans will also be synced in this method.
 
 
-##Sync failed events
+## Sync failed events
 
 Chargebee attempts to send webhook notifications for upto 2 days. After 2 days, if the webhook event has failed due to some reason, the webhook’s status is marked as “Failed” and further attempts are stopped.  Once the error has been fixed at your end, the rake task will sync the failed events with your application. The failed events will be selectively sent to the webhook handler as well as hook methods, provided the event does not have an outdated update.
 
@@ -231,7 +231,7 @@ Chargebee attempts to send webhook notifications for upto 2 days. After 2 days, 
 
 
 
-##Sync events with your application##
+## Sync events with your application
 
 The event types listed below are synced with the application by this gem
 
@@ -265,7 +265,7 @@ The event types listed below are synced with the application by this gem
 
 
 
-##Configure your default plan Id##
+## Configure your default plan Id
 
 When a customer signs up for a trial account, you will associate the subscription with a particular plan in Chargebee. This plan can be configured as the default plan in the gem, so that the the plan name is automatically passed during subscription creation.
 This way, when calling the [create a subscription](https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription) API, if the plan id is not passed in the subscription method,  it will be taken from `config.default_plan_id`.
@@ -279,7 +279,7 @@ This way, when calling the [create a subscription](https://apidocs.chargebee.com
 
 
 
-##Advanced settings##
+## Advanced settings
 
 If you would like to control the subscription upgrade/downgrade behaviour, you can specify this in:
 
